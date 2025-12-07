@@ -1,4 +1,3 @@
-# Mood & Stress Tracker - MindCare Journal
 data = []
 
 def autosave():
@@ -10,7 +9,6 @@ def autosave():
     except:
         print("Gagal menyimpan data.")
 
-# Pesan berdasarkan mood
 def motivasi_mood(mood):
     if mood == "happy":
         return "Senang melihat kamu bahagia! Pertahankan ya 😊"
@@ -23,7 +21,6 @@ def motivasi_mood(mood):
     else:
         return "Hari yang netral juga baik. Jaga dirimu dan tetap positif ✨"
 
-# Pesan berdasarkan tingkat stres
 def motivasi_stres(level):
     if 1 <= level <= 3:
         return "Stressmu rendah, bagus! Tetap jaga keseimbangan ya 🌱"
@@ -36,7 +33,6 @@ def motivasi_stres(level):
     else:
         return ""
 
-# Tambah Catatan
 def tambah():
     print("\n=== Tambah Catatan Mental ===")
     tgl = input("Tanggal (dd/mm/yyyy): ").strip()
@@ -66,7 +62,6 @@ def tambah():
     print("Pesan untukmu:", motivasi_mood(mood))
     print("Level stres:", motivasi_stres(stres))
 
-# Lihat Semua
 def tampil():
     print("\n=== Semua Catatan Mental ===")
     if not data:
@@ -82,7 +77,6 @@ def tampil():
         print("Pesan Mood :", motivasi_mood(d["mood"]))
         print("Pesan Stres:", motivasi_stres(d["stres"]))
 
-# Edit Catatan
 def edit():
     print("\n=== Edit Catatan ===")
     tgl = input("Masukkan tanggal catatan yang ingin diedit: ").strip()
@@ -118,7 +112,6 @@ def edit():
 
     print("Tanggal tidak ditemukan.")
 
-# Menu utama
 def menu():
     while True:
         print("\n========= MINDCARE JOURNAL =========")
