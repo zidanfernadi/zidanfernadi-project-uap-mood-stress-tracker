@@ -35,7 +35,22 @@ def motivasi_stres(level):
 
 def tambah():
     print("\n=== Tambah Catatan Mental ===")
-    tgl = input("Tanggal (dd/mm/yyyy): ").strip()
+   
+    while True:
+        tgl = input("Tanggal (dd/mm/yyyy: ").strip()
+        try:
+            if len(tgl) == 10 and tgl[2] == "/" and tgl[5] == "/":
+                hari = tgl[:2]
+                bulan = tgl[3:5]
+                tahun = tgl[6:]
+                if hari.isdigit() and bulan.isdigit() and tahun.isdigit():
+                    hari = int(hari)
+                    bulan = int(bulan)
+                    if 1 <= hari <= 31 and 1 <= bulan <= 12:
+                        break
+            raise ValueError
+        except ValueError:
+            print("❌ Format tanggal salah! Gunakan format dd/mm/yyyy & hanya angka. Contoh: 08/12/2025")
     mood = input("Mood (happy/sad/anxious/stress/neutral): ").lower().strip()
 
     try:
