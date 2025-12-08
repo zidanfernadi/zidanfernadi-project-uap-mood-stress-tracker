@@ -149,6 +149,7 @@ def hapus():
     for d in data:
         if d["tgl"] == tgl:
             data.remove(d)
+            autosave()
             print("Catatan berhasil dihapus!")
             return
 
