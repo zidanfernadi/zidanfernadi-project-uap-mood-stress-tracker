@@ -5,9 +5,9 @@ def autosave():
         with open("mindcare_log.txt", "w") as f:
             for d in data:
                 f.write(str(d) + "\n")
-            print("Data berhasil disimpan")")
-        except:
-            print("Gagal menyimpan data.")
+            print("Data berhasil disimpan")
+    except:
+        print("Gagal menyimpan data.")
 
 def motivasi_mood(mood):
     if mood == "happy":
@@ -39,7 +39,7 @@ def tambah():
     mood = input("Mood (happy/sad/anxious/stress/neutral): ").lower().strip()
 
     try:
-        stress = int(input("Tingkat stress (1-10): "))
+        stres = int(input("Tingkat stress (1-10): "))
         if stres < 1 or stres > 10:
             raise ValueError
     except ValueError:
@@ -57,7 +57,7 @@ def tambah():
 
     data.append(entry)
     autosave()
-print("\nCatatan berhasil ditambah!")
+    print("\nCatatan berhasil ditambah!")
     print("Pesan untukmu:", motivasi_mood(mood))
     print("Level stres:", motivasi_stres(stres))
 
@@ -78,8 +78,6 @@ def tampil():
 
 def cari():
     print("\n===Cari Jurnal===")
-    def cari():
-    print("\n=== Cari Jurnal ===")
     q = input("Masukkan tanggal atau mood: ").strip().lower()
 
     found = False
@@ -146,8 +144,10 @@ def menu():
         print("\n========= MINDCARE JOURNAL =========")
         print("1. Tambah Catatan")
         print("2. Lihat Semua Catatan")
-        print("3. Edit Catatan")
-        print("4. Keluar")
+        print("3. Cari Catatan")
+        print("4. Edit Catatan")
+        print("5. Hapus Catatan")
+        print("6. Keluar")
 
         
         pilih = input("Pilih menu: ").strip()
@@ -158,8 +158,12 @@ def menu():
         elif pilih == "2":
             tampil()
         elif pilih == "3":
-            edit()
+            cari()
         elif pilih == "4":
+            edit()
+        elif pilih == "5":
+            hapus()
+        elif pilih == "6":
             print("Terima kasih! Jaga kesehatan mental ya 🤍")
             break
         else:
