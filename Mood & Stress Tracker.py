@@ -76,6 +76,25 @@ def tampil():
         print("Pesan Mood :", motivasi_mood(d["mood"]))
         print("Pesan Stres:", motivasi_stres(d["stres"]))
 
+def cari():
+    print("\n===Cari Jurnal===")
+    def cari():
+    print("\n=== Cari Jurnal ===")
+    q = input("Masukkan tanggal atau mood: ").strip().lower()
+
+    found = False
+    for d in data:
+        if d["tgl"].lower() == q or d["mood"].lower() == q:
+            print("\nDitemukan:")
+            print(f"Tanggal : {d['tgl']}")
+            print(f"Mood    : {d['mood']}")
+            print(f"Stres   : {d['stres']}/10")
+            print(f"Catatan : {d['catatan']}")
+            found = True
+
+    if not found:
+        print("Tidak ada yang cocok.")
+        
 def edit():
     print("\n=== Edit Catatan ===")
     tgl = input("Masukkan tanggal catatan yang ingin diedit: ").strip()
@@ -107,6 +126,17 @@ def edit():
             print("\nCatatan berhasil diperbarui!")
             print("Pesan Mood :", motivasi_mood(d["mood"]))
             print("Pesan Stres:", motivasi_stres(d["stres"]))
+            return
+
+    print("Tanggal tidak ditemukan.")
+
+def hapus():
+    print("\n=== Hapus Catatan ===")
+    tgl = input("Masukkan tanggal: ").strip()
+    for d in data:
+        if d["tgl"] == tgl:
+            data.remove(d)
+            print("Catatan berhasil dihapus!")
             return
 
     print("Tanggal tidak ditemukan.")
