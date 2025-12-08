@@ -24,11 +24,36 @@ def motivasi_mood(mood):
 def motivasi_stres(level):
     if 1 <= level <= 3:
         return "Stressmu rendah, bagus! Tetap jaga keseimbangan ya 🌱"
-    elif 4 <= level <= 6:
+    elif 4 <= level <= 3:
         return "Kamu terlihat sedikit lelah. Coba istirahat sebentar atau minum air hangat ☕"
     elif 7 <= level <= 8:
-        return "Stressmu cukup tinggi. Ambil waktu untuk rileks, kamu layak istirahat 🧘"
+         return "Stressmu cukup tinggi. Ambil waktu untuk rileks, kamu layak istirahat 🧘"
     elif 9 <= level <= 10:
         return "Stress sangat tinggi! Tolong beri dirimu waktu untuk tenang dan jangan memaksakan diri 🤍"
     else:
         return ""
+
+def tambah():
+    print("\n=== Tambah Catatan Mental ===")
+    tgl = input("Tanggal (dd/mm/yyyy): ").strip
+    mood = input("Mood (happy/sad/anxious/stress/neutral): ").lower().strip()
+
+    try:
+        stress = int(input("Tingkat stress (1-10): "))
+        if stres < 1 or stres > 10:
+            raise ValueError
+    except ValueError:
+        print("Stres harus angka 1–10!")
+        return
+
+    catatan = input("Catatan singkat: ").strip()
+
+    entry = {
+        "tgl": tgl,
+         "mood": mood,
+        "stres": stres,
+        "catatan": catatan
+    }
+
+    data.append(entry)
+    autosave()
